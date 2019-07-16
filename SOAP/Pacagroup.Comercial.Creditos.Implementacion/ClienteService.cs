@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Pacagroup.Comercial.Creditos.Contrato;
 using Pacagroup.Comercial.Creditos.Dominio;
+using Pacagroup.Comercial.Creditos.Fachada;
 
 
 namespace Pacagroup.Comercial.Creditos.Implementacion
@@ -10,13 +11,19 @@ namespace Pacagroup.Comercial.Creditos.Implementacion
     {
         public Cliente ObtenerCliente(string NumeroDocumento)
         {
-            return null;
+            using (var instancia = new ClienteFachada())
+            {
+                return instancia.ObtenerCliente(NumeroDocumento);
+            }
         }
 
 
         public IEnumerable<Cliente> ListarCliente()
         {
-            return null;
+            using (var instancia = new ClienteFachada())
+            {
+                return instancia.ListarCliente();
+            }
         }
       
     }
